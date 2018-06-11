@@ -8,8 +8,6 @@ var getElementsByClassName = function(className) {
   node = document.body;
   var results = [];
   
-  checkClassName(node);
-
   var checkClassName = function(childNode){
     // Check to see if className matches node's class name
     if(childNode.className.indexOf(className) !== -1){
@@ -24,6 +22,7 @@ var getElementsByClassName = function(className) {
         checkClassName(childNode.children[i]);
       }
     }
-  };
+  };  
+  checkClassName(node);
   return results; 
 };
