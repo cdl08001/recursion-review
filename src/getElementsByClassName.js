@@ -10,30 +10,20 @@ var getElementsByClassName = function(className) {
   
   checkClassName(node);
 
-  // for(var i = 0; i < node.children.length; i++){
-  //   checkClassName(node.children[i]);
-  // } 
-
-  function checkClassName(childNode){
+  var checkClassName = function(childNode){
     // Check to see if className matches node's class name
-    if(childNode.className.indexOf(className) != -1){
-      //  - if it does, push to results
+    if(childNode.className.indexOf(className) !== -1){
+      // If it does, push to results
       results.push(childNode);
-      //console.log(results);
     }
 
     // Check and see if childNode has children:
     if(childNode.children.length > 0){
-    // If it does, run 'getElementsByClassName' on all children
-    // childNode.children.forEach(function(child){
-    //   getElementsByClassName(className, child);
-    // });
+    // If it does, run 'checkClassName' on all children
       for(var i = 0; i < childNode.children.length; i++){
         checkClassName(childNode.children[i]);
       }
     }
-
-  }
-  console.log(results);
+  };
   return results; 
 };
